@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/features/*": ["features/*"],
+      "@/helpers/*": ["helpers/*"],
+      "@/pages/*": ["pages/*"],
+      "@/assets/*": ["../public/assets/*"],
+      "@/styles/*": ["GlobalStyles.js"],
+      "@/app": ["App.jsx"],
+      "@/main": ["main.jsx"]
+    }
+  },
+  "include": ["src"]
+}
