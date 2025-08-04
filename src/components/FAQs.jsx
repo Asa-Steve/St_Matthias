@@ -41,7 +41,7 @@ const FAQs = () => {
       {faqs?.map((faq, idx) => (
         <FAQ
           data={faq}
-          isActive={activeFaqIndex === idx ? "true" : "false"}
+          isActive={activeFaqIndex === idx}
           key={`${faq?.question}_${idx}`}
           id={idx}
           setActiveFaqIndex={setActiveFaqIndex}

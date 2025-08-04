@@ -52,7 +52,7 @@ const FaceCard = ({ name, title, imgUrl }) => {
   return (
     <StyledFaceCard>
       <CardPhoto>
-        <img src={`images/${imgUrl}.jpg`} alt={`A photo of ${name}`} />
+        <img src={`/images/${imgUrl}.jpg`} alt={`A photo of ${name}`} />
       </CardPhoto>
       <CardHeading>{name}</CardHeading>
       <CardDesc>{title}</CardDesc>

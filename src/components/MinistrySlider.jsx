@@ -27,6 +27,8 @@ const SliderWrapper = styled(motion.div)`
     flex-direction: row;
     justify-content: center;
     padding: 0 2rem;
+    min-height: 90vh;
+    max-height: 100vh;
   }
 `;
 

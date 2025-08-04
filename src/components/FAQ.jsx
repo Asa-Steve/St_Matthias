@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledFAQ = styled.div`
-  border: 1px solid var(--color-grey-600);
+  border: 1px solid var(--color-grey-700);
   height: fit-content;
   width: 90%;
   margin-inline: auto;
@@ -43,10 +43,10 @@ const FaqAnswer = styled.div`
 `;
 const FAQ = ({ data, isActive, setActiveFaqIndex, id }) => {
   return (
-    <StyledFAQ isactive={isActive}>
+    <StyledFAQ>
       <FaqQuestion onClick={() => setActiveFaqIndex(id)}>
         {data?.question}
-        <span>{isActive === "true" ? "-" : "+"}</span>
+        <span>{isActive ? "-" : "+"}</span>
       </FaqQuestion>
 
       {isActive && <FaqAnswer>{data?.answer}</FaqAnswer>}

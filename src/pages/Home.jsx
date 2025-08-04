@@ -38,8 +38,6 @@ const WriteUp = styled.div`
 `;
 
 const FAQSection = styled.div`
-  height: 75vh;
-
   @media ${device.tablet} {
     display: flex;
     flex-direction: column;

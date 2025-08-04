@@ -59,7 +59,9 @@ const GlobalStyles = createGlobalStyle`
 
   /* Set default body styles */
   body {
-    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
+    /* font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; */
+    
     background-color: #f9f9f9;
     color: var(--color-secondary);
     line-height: 1.6;
