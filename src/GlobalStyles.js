@@ -42,13 +42,14 @@ const GlobalStyles = createGlobalStyle`
     --f-sm: 16px;
     --f-md: 20px;
     --f-lg: 32px;
+    --f-xlg: 45px;
   
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
     --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
     /* Colors */
   --color-primary: rgba(255, 0 ,102, 1);
-  --color-secondary: #012132;
+  --color-secondary: #001220;
 }
   /* CSS Reset / Normalize */
   *, *::before, *::after {
@@ -59,13 +60,19 @@ const GlobalStyles = createGlobalStyle`
 
   /* Set default body styles */
   body {
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Gill Sans ",Gill Sans MT,Calibri,Trebuchet MS,sans-serif; */
     /* font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; */
+    font-family: "Roboto", sans-serif;
     
     background-color: #f9f9f9;
     color: var(--color-secondary);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+  }
+
+  #root{
+    height: 100vh;
+    overflow-y: auto;
   }
 
   /* Links */
@@ -89,6 +96,10 @@ const GlobalStyles = createGlobalStyle`
 
   button {
     cursor: pointer;
+
+    &:disabled{
+      background-color: var(--color-grey-300) !important;
+    }
   }
 
   img {
@@ -99,7 +110,7 @@ const GlobalStyles = createGlobalStyle`
   /* Root font size (useful for rem) */
   html {
     font-size: var(--f-sm);
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
   }
 
   /* Selection highlight */

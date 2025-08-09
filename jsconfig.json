@@ -5,6 +5,8 @@
       "@/components/*": ["components/*"],
       "@/features/*": ["features/*"],
       "@/helpers/*": ["helpers/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/utils/*": ["utils/*"],
       "@/pages/*": ["pages/*"],
       "@/assets/*": ["../public/assets/*"],
       "@/styles/*": ["GlobalStyles.js"],

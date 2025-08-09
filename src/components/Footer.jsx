@@ -57,7 +57,7 @@ const ColumnTwo = styled(Column)`
 const LogoWrap = styled.div`
   border: 1px solid;
   width: fit-content;
-`
+`;
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;

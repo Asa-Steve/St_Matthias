@@ -1,24 +1,43 @@
 import ContactForm from "@/components/ContactForm";
+import FaceCardList from "@/components/FaceCardList";
+import FadeInOnScroll from "@/components/FadeInOnScroll";
 import FAQs from "@/components/FAQs";
 import TopInfo from "@/components/TopInfo";
+import { device } from "@/helpers/mediaQueries";
 import styled from "styled-components";
 
 const StyledAbout = styled.div`
-  /* border: 1px solid; */
+  padding: 0 0.5rem;
+
+  @media ${device.tablet} {
+    padding: 0 2rem;
+  }
 `;
 
 const MissionStatement = styled.div`
-  /* border: 1px solid red; */
+  margin-block: 100px 0;
+
   display: flex;
   flex-direction: column-reverse;
+
+  @media ${device.desktop} {
+    margin-block: 180px 0;
+    flex-direction: row;
+    height: 500px;
+    align-items: center;
+  }
 `;
 const Left = styled.div`
   padding: 1rem 0.5rem;
+
+  @media ${device.desktop} {
+    flex: 1 1 400px;
+  }
 `;
 const Statement = styled.div`
   display: flex;
   margin-block: 0.5rem;
-  border: 1px solid var(--color-grey-300);
+  border: 1px solid var(--color-grey-200);
   padding: 0.1rem;
   span {
     flex: 0 0 60px;
@@ -57,10 +76,16 @@ const Statement = styled.div`
     background-color: var(--color-secondary);
     z-index: -1;
   }
+
+  @media ${device.tablet} {
+    height: 100px;
+    span {
+      flex: 0 0 100px;
+    }
+  }
 `;
 
 const Right = styled.div`
-  /* border: 1px solid; */
   padding: 0.5rem;
   height: 300px;
 
@@ -68,35 +93,87 @@ const Right = styled.div`
     height: 100%;
     width: 100%;
     object-fit: cover;
+    box-shadow: -5px 5px 10px 0px var(--color-grey-500);
+  }
+
+  @media ${device.tablet} {
+    height: 400px;
+  }
+
+  @media ${device.desktop} {
+    flex: 1 1 300px;
+    height: 100%;
   }
 `;
 
 const WriteUp = styled.div`
-  margin-block: 60px;
+  margin-block: 100px 0;
+
   text-align: center;
   padding-inline: 1rem;
 
   h2 {
     margin-bottom: 1rem;
   }
+  p {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  @media ${device.desktop} {
+    h2 {
+      font-size: var(--f-xlg);
+    }
+
+    p {
+      font-size: var(--f-md);
+    }
+  }
 `;
 
 const FaqSection = styled.div`
-  /* border: 1px solid; */
-  /* padding: 1rem; */
+  margin-block: 40px 0;
+
+  @media ${device.desktop} {
+    display: flex;
+    height: 500px;
+  }
 `;
 
 const LeftFaqSect = styled.div`
   background-color: var(--color-secondary);
   color: var(--color-grey-0);
+
+  @media ${device.tablet} {
+    flex: 0 0 60%;
+    padding: 2rem;
+  }
 `;
-const RightFaqSect = styled.div``;
-const FaqWriteUp = styled(WriteUp)``;
+const RightFaqSect = styled.div`
+  @media ${device.tablet} {
+    flex: 0 0 40%;
+    padding: 2rem 0;
+    background-color: var(--color-grey-0);
+  }
+`;
+const FaqWriteUp = styled(WriteUp)`
+  margin-block: 100px 0;
+  @media ${device.desktop} {
+    margin-block: 180px 0;
+  }
+`;
+
+const TeamCards = styled.div`
+  margin-block: 100px 80px;
+  @media ${device.desktop} {
+    margin-block-start: 180px;
+  }
+`;
 
 const mission = [
   {
     title: "Our Mission",
-    desc: "At St. Matthias Catholic Church, we are a community of faith, rooted in the Eucharist and guided by the Gospel. Our mission is to spread God’s love through worship, service, and fellowship.",
+    desc: "We are called to invite all people into a deeper relationship with Christ through the sacraments and active participation in the Church.",
   },
   {
     title: "Our Vision",
@@ -116,47 +193,69 @@ const About = () => {
   return (
     <>
       <TopInfo text="About St. Matthias Catholic Church" />
-      <StyledAbout>
-        <WriteUp>
-          <h2>We love God. We believe in God.</h2>
-          <p>
-            At St. Matthias Catholic Church, we are a community of faith, rooted
-            in the Eucharist and guided by the Gospel. Our mission is to spread
-            God’s love through worship, service, and fellowship.
-          </p>
-        </WriteUp>
 
-        <MissionStatement>
-          <Left>
-            {mission?.map((item, idx) => (
-              <Statement key={`${item?.title}_${idx}`}>
-                <span>{idx + 1}</span>
-                <div>
-                  <h3>{item?.title}</h3>
-                  <p>{item?.desc}</p>
-                </div>
-              </Statement>
-            ))}
-          </Left>
-          <Right>
-            <img src="/images/about-us.webp" alt="" />
-          </Right>
-        </MissionStatement>
-        <FaqWriteUp>
-          <h3>Questions about the church</h3>
-          <p>
-            Have any questions or need assistance? Reach out to us via email, or
-            visit the parish office.
-          </p>
-        </FaqWriteUp>
-        <FaqSection>
-          <LeftFaqSect>
-            <FAQs />
-          </LeftFaqSect>
-          <RightFaqSect>
-            <ContactForm />
-          </RightFaqSect>
-        </FaqSection>
+      <StyledAbout>
+        <FadeInOnScroll>
+          <WriteUp>
+            <h2>We love God. We believe in God.</h2>
+            <p>
+              At St. Matthias Catholic Church, we are a community of faith,
+              rooted in the Eucharist and guided by the Gospel. Our mission is
+              to spread God’s love through worship, service, and fellowship.
+            </p>
+          </WriteUp>
+        </FadeInOnScroll>
+
+        <FadeInOnScroll>
+          <MissionStatement>
+            <Left>
+              {mission?.map((item, idx) => (
+                <Statement key={`${item?.title}_${idx}`}>
+                  <span>{idx + 1}</span>
+                  <div>
+                    <h3>{item?.title}</h3>
+                    <p>{item?.desc}</p>
+                  </div>
+                </Statement>
+              ))}
+            </Left>
+            <Right>
+              <img src="/images/about-us.webp" alt="" />
+            </Right>
+          </MissionStatement>
+        </FadeInOnScroll>
+        <FadeInOnScroll>
+          <FaqWriteUp>
+            <h2>Questions about the church</h2>
+            <p>
+              Have any questions or need assistance? Reach out to us via email,
+              or visit the parish office.
+            </p>
+          </FaqWriteUp>
+        </FadeInOnScroll>
+        <FadeInOnScroll>
+          <FaqSection>
+            <LeftFaqSect>
+              <FAQs />
+            </LeftFaqSect>
+            <RightFaqSect>
+              <ContactForm />
+            </RightFaqSect>
+          </FaqSection>
+        </FadeInOnScroll>
+        <FadeInOnScroll>
+          <TeamCards>
+            <WriteUp>
+              <h2>Meet Our Priests & Religious</h2>
+              <p>
+                Our dedicated clergy and religious serve with faith and
+                commitment, guiding our parish community in worship, pastoral
+                care, and spiritual growth.
+              </p>
+            </WriteUp>
+            <FaceCardList />
+          </TeamCards>
+        </FadeInOnScroll>
       </StyledAbout>
     </>
   );

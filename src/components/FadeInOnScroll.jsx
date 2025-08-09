@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 const FadeInOnScroll = ({ children }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" }); // was margin of -100px
 
   return (
     <motion.div

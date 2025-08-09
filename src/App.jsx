@@ -4,6 +4,10 @@ import About from "@/pages/About";
 import NotFound from "@/pages/NotFound";
 import AppLayout from "@/features/AppLayout";
 import Religious from "./pages/Religious";
+import Contact from "./pages/Contact";
+import Donate from "./pages/Donate";
+import MassRequest from "./pages/MassRequest";
+import InfantBaptism from "./pages/infantBaptism";
 
 function App() {
   return (
@@ -12,6 +16,10 @@ function App() {
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="donate" element={<Donate />} />
+          <Route path="prayer-request" element={<MassRequest />} />
+          <Route path="infant-baptism" element={<InfantBaptism />} />
           <Route path="religious/:religiousId" element={<Religious />} />
         </Route>
 

@@ -20,7 +20,7 @@ const StyledFaceCard = styled(NavLink)`
   }
 
   @media ${device.tablet} {
-    width: 298px;
+    width: 250px;
   }
 `;
 const CardPhoto = styled.div`
@@ -28,7 +28,7 @@ const CardPhoto = styled.div`
   border-radius: 5px;
   overflow: hidden;
   width: 100%;
-  height: 250px;
+  height: 200px;
   margin-bottom: 0.5rem;
 
   img {

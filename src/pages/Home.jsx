@@ -18,23 +18,44 @@ const Section = styled.section`
   margin-block: 60px;
 `;
 
+const ReligiousSection = styled(Section)`
+  margin-block: 100px 0;
+  @media ${device.desktop} {
+    margin-block: 180px 0;
+  }
+`;
+
 const StyledMinistrySlider = styled(Section)`
+  margin-block: 100px 0;
   background: url("/waves.svg") no-repeat center bottom / cover;
+  @media ${device.desktop} {
+    margin-block: 180px 0;
+  }
 `;
 
 const StyledFaqSection = styled(Section)`
   background-color: var(--color-secondary);
   color: var(--color-grey-0);
-  padding-bottom: 1rem;
-  padding-block: 3rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--color-grey-600);
+  margin-block: 100px 0;
 
   @media ${device.tablet} {
     padding: 3rem;
+  }
+  @media ${device.desktop} {
+    margin-block: 180px 0;
   }
 `;
 
 const WriteUp = styled.div`
   text-align: center;
+
+  @media ${device.desktop} {
+    h2 {
+      font-size: var(--f-xlg);
+    }
+  }
 `;
 
 const FAQSection = styled.div`
@@ -100,12 +121,20 @@ const Right = styled.div`
   }
 `;
 
+const ServicesWrap = styled.div`
+  margin-block: 50px 0;
+  @media ${device.desktop} {
+    margin-block: 80px 0;
+  }
+`;
 const Home = () => {
   return (
     <>
       <AnimatedSlider />
       <FadeInOnScroll>
-        <Services />
+        <ServicesWrap>
+          <Services />
+        </ServicesWrap>
       </FadeInOnScroll>
 
       <FadeInOnScroll>
@@ -114,36 +143,40 @@ const Home = () => {
         </StyledMinistrySlider>
       </FadeInOnScroll>
 
-      <Section>
-        <WriteUp>
-          <TagLine>Meet The Team</TagLine>
-          <h2>Our Priests and Religious</h2>
-        </WriteUp>
-        <FaceCardList />
-      </Section>
+      <FadeInOnScroll>
+        <ReligiousSection>
+          <WriteUp>
+            <TagLine>Meet The Team</TagLine>
+            <h2>Our Priests and Religious</h2>
+          </WriteUp>
+          <FaceCardList />
+        </ReligiousSection>
+      </FadeInOnScroll>
 
-      <StyledFaqSection>
-        <WriteUp>
-          <TagLine>Most Asked</TagLine>
-          <h2>Frequently Asked</h2>
-        </WriteUp>
+      <FadeInOnScroll>
+        <StyledFaqSection>
+          <WriteUp>
+            <TagLine>Most Asked</TagLine>
+            <h2>Frequently Asked</h2>
+          </WriteUp>
 
-        <FAQSection>
-          <Left>
-            <FAQs />
-          </Left>
+          <FAQSection>
+            <Left>
+              <FAQs />
+            </Left>
 
-          <Right>
-            <h3>Have Any Questions ? </h3>
-            <p>
-              We’re here to guide you! Whether it’s about receiving the
-              sacraments, joining the parish, or participating in ministries,
-              feel free to reach out.
-            </p>
-            <Link>Contact Us</Link>
-          </Right>
-        </FAQSection>
-      </StyledFaqSection>
+            <Right>
+              <h3>Have Any Questions ? </h3>
+              <p>
+                We’re here to guide you! Whether it’s about receiving the
+                sacraments, joining the parish, or participating in ministries,
+                feel free to reach out.
+              </p>
+              <Link>Contact Us</Link>
+            </Right>
+          </FAQSection>
+        </StyledFaqSection>
+      </FadeInOnScroll>
     </>
   );
 };

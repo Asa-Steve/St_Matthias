@@ -9,7 +9,7 @@ const StyledAppLayout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+
   position: relative;
 `;
 
@@ -22,16 +22,13 @@ const NavbarWrap = styled.div`
 `;
 
 const FooterWrap = styled.div`
-  min-height: 400px;
   padding-block: 4rem;
   background-color: var(--color-secondary);
   color: var(--color-grey-0);
 `;
 
 const Main = styled.main`
-  /* border: 1px solid blue; */
   flex: 1;
-  min-height: 600px;
 `;
 const AppLayout = () => {
   const isMobile = useIsMobile(992);

@@ -1,15 +1,23 @@
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import FormRow from "./FormRow";
+import { device } from "@/helpers/mediaQueries";
 
 const Form = styled.form`
-  /* border: 1px solid red; */
   background-color: white;
   padding: 1.5rem;
+  height: 100%;
 `;
 
 const FormInputGroup = styled.div`
-  /* border: 1px solid; */
+  @media ${device.tablet} {
+    display: flex;
+    gap: 1rem;
+
+    div {
+      width: 100%;
+    }
+  }
 `;
 
 const ContactForm = () => {
@@ -37,7 +45,7 @@ const ContactForm = () => {
             },
           })}
         />
-        {errors?.fullName && <span>{errors?.fullName?.message}</span>}
+        <span>{errors?.fullName && errors?.fullName?.message}</span>
       </FormRow>
       <FormInputGroup>
         <FormRow>
@@ -56,7 +64,7 @@ const ContactForm = () => {
               },
             })}
           />
-          {errors?.email && <span>{errors?.email?.message}</span>}
+          <span>{errors?.email && errors?.email?.message}</span>
         </FormRow>
         <FormRow>
           <label>Msg Subject</label>
@@ -70,7 +78,7 @@ const ContactForm = () => {
               },
             })}
           />
-          {errors?.subject && <span>{errors?.subject?.message}</span>}
+          <span>{errors?.subject && errors?.subject?.message}</span>
         </FormRow>
       </FormInputGroup>
       <FormRow>
@@ -84,7 +92,7 @@ const ContactForm = () => {
           })}
           placeholder="write message here..."
         />
-        {errors?.message && <span>{errors?.message?.message}</span>}
+        <span>{errors?.message && errors?.message?.message}</span>
       </FormRow>
       <FormRow>
         <button>Submit Message</button>
