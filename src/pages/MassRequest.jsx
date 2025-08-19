@@ -135,6 +135,7 @@ const FormSection = styled.div`
   }
 
   @media ${device.desktop} {
+    margin-bottom: 100px;
     padding: 2rem;
   }
 `;

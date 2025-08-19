@@ -20,9 +20,12 @@ const WriteUp = styled.div`
   }
 
   @media ${device.desktop} {
-    padding-inline: 2rem;
     h2 {
       font-size: var(--f-xlg);
+    }
+
+    p {
+      font-size: var(--f-md);
     }
   }
 `;
@@ -65,9 +68,11 @@ const FormSection = styled.div`
   }
 
   @media ${device.desktop} {
+    margin-bottom: 100px;
     padding: 1rem 2rem;
   }
 `;
+
 const ImgSection = styled.div`
   border: 1px solid var(--color-grey-300);
   padding: 0.2rem;
@@ -85,6 +90,7 @@ const ImgSection = styled.div`
     height: 100%;
   }
 `;
+
 const FormWrap = styled.div`
   background-color: var(--color-secondary);
   flex: 1 1 600px;

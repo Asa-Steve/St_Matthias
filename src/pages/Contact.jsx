@@ -99,7 +99,7 @@ const MapSection = styled.div`
     height: 70vh;
   }
   @media ${device.desktop} {
-    margin-block-start: 180px;
+    margin-block: 180px 100px;
     height: 85vh;
     width: 80%;
     margin-inline: auto;

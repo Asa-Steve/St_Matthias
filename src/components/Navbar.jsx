@@ -63,21 +63,26 @@ const DropDown = styled.div`
   position: absolute;
   left: -10px;
   padding: 1.5rem 0;
+
+  width: 300px;
 `;
 
 const DropDownWrap = styled.div`
-  width: 200px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 0.2rem;
+  padding: 1rem 1.5rem;
+
+  background-color: var(--backdrop-color);
+  backdrop-filter: blur(20px);
 
   a {
     transition: all 0.3s ease;
     border: 1px solid var(--color-grey-200);
     background-color: var(--color-grey-50);
 
-    &:hover {
+    &:hover,
+    &.active {
       transform: scale(1.1);
       background-color: var(--color-primary);
       color: var(--color-grey-0);
@@ -108,17 +113,14 @@ const Navbar = () => {
           {isHovered && (
             <DropDown>
               <DropDownWrap>
-                <NavLink end to="/events">
-                  Events
+                <NavLink end to="/infant-baptism">
+                  infant baptism
                 </NavLink>
-                <NavLink end to="/news">
-                  News
+                <NavLink end to="/search-records">
+                  search records
                 </NavLink>
-                <NavLink end to="/gallery">
-                  Gallery
-                </NavLink>
-                <NavLink end to="/resources">
-                  Resources
+                <NavLink end to="/history">
+                  church history
                 </NavLink>
               </DropDownWrap>
             </DropDown>

@@ -158,17 +158,14 @@ const MenuMobile = ({ isActive, setIsActive }) => {
           </span>
           {isClicked && (
             <DropDown>
-              <NavLink end to="/events">
-                Events
+              <NavLink end to="/infant-baptism">
+                infant baptism
               </NavLink>
-              <NavLink end to="/news">
-                News
+              <NavLink end to="/search-records">
+                search records
               </NavLink>
-              <NavLink end to="/gallery">
-                Gallery
-              </NavLink>
-              <NavLink end to="/resources">
-                Resources
+              <NavLink end to="/history">
+                church history
               </NavLink>
             </DropDown>
           )}

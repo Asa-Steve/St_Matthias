@@ -156,11 +156,11 @@ const Footer = () => {
         <ColumnTwo>
           <h3>Quick Links</h3>
           <FooterLinks>
-            <Link>Home</Link>
-            <Link>About us</Link>
-            <Link>Contact us</Link>
-            <Link>Donate</Link>
-            <Link>Login</Link>
+            <Link to={"/"}>Home</Link>
+            <Link to={"/about"}>About us</Link>
+            <Link to={"contact"}>Contact us</Link>
+            <Link to={"donate"}>Donate</Link>
+            <Link to={""}>Login</Link>
           </FooterLinks>
         </ColumnTwo>{" "}
       </Columns>

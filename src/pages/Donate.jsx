@@ -131,7 +131,7 @@ const FormSection = styled.div`
 
   @media ${device.desktop} {
     padding-inline: 2rem;
-
+margin-bottom: 100px;
     h2 {
       font-size: var(--f-xlg);
     }

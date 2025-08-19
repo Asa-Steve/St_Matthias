@@ -39,6 +39,7 @@ const Statement = styled.div`
   margin-block: 0.5rem;
   border: 1px solid var(--color-grey-200);
   padding: 0.1rem;
+  
   span {
     flex: 0 0 60px;
     display: inline-flex;
