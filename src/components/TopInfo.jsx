@@ -53,7 +53,7 @@ const TopInfo = ({ subText, text = "welcome to this page" }) => {
   return (
     <StyledTopInfo>
       <Overlay />
-      <h2>{text}</h2>
+      <h2>{text?.length < 80 ? text : text?.slice(0, 80) + " ..."}</h2>
       <h4>{subText ?? path}</h4>
     </StyledTopInfo>
   );

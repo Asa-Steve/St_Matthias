@@ -10,6 +10,8 @@ import MassRequest from "./pages/MassRequest";
 import InfantBaptism from "./pages/infantBaptism";
 import Records from "./pages/Records";
 import History from "./pages/History";
+import Articles from "./pages/Articles";
+import ArticleDetails from "./features/Articles/ArticleDetails";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="donate" element={<Donate />} />
           <Route path="history" element={<History />} />
+          <Route path="articles" element={<Articles />} />
+          <Route path="articles/:articleId" element={<ArticleDetails />} />
           <Route path="search-records" element={<Records />} />
           <Route path="prayer-request" element={<MassRequest />} />
           <Route path="infant-baptism" element={<InfantBaptism />} />

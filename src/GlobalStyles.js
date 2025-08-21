@@ -4,8 +4,10 @@ const GlobalStyles = createGlobalStyle`
 
 :root{
   /* colors */
+  --color-green-0: #e0f2f1;
     --color-green-100:#dcfce7;
     --color-green-700: #15803d;
+
     --color-yellow-100: #fef9c3;
     --color-yellow-700: #a16207;
     --color-red-700: #b91c1c;
@@ -74,6 +76,10 @@ const GlobalStyles = createGlobalStyle`
     height: 100vh;
     overflow-y: auto;
   }
+
+  button, a, input, textarea {
+  -webkit-tap-highlight-color: transparent; // removing the blueish overlay when click occurs
+}
 
   /* Links */
   a {
