@@ -105,3 +105,94 @@ walking alongside them reminds us that compassion is more powerful than charity.
 Each program is an opportunity to live out the message of Christ’s love in action.`,
   },
 ];
+
+export const ministries = [
+  {
+    name: "Catholic Men’s Organization (CMO) ✝️",
+    subHeading: "Strong men, strong faith, strong community.",
+    description:
+      "The CMO brings together Catholic men to grow spiritually, support the church’s mission, and engage in charitable activities that uplift the community.",
+    details: {
+      meetingDays: "Last Sunday of the Month",
+      time: "12:00 PM – 2:00 PM",
+      location: "Church Hall",
+    },
+  },
+  {
+    name: "Catholic Women’s Organization (CWO) 💒",
+    subHeading: "Women of faith, mothers of the Church.",
+    description:
+      "The CWO is a vibrant group dedicated to nurturing faith, family, and service. They lead charitable works, prayer meetings, and initiatives that empower women in the Church.",
+    details: {
+      meetingDays: "Second Sunday of the Month",
+      time: "1:00 PM – 3:00 PM",
+      location: "Church Hall",
+    },
+  },
+  {
+    name: "Altar Servers ⛪",
+    subHeading: "Serving with humility at the Lord’s table.",
+    description:
+      "Altar servers assist the priest during Mass, helping with processions, carrying the cross, and ensuring a reverent and smooth liturgical celebration.",
+    details: {
+      meetingDays: "Sundays",
+      time: "3:00 PM – 4:30 PM",
+      location: "Sacristy",
+    },
+  },
+  {
+    name: "Catechism Classes 📖",
+    subHeading: "Teaching the faith, nurturing souls.",
+    description:
+      "The Catechism Society is dedicated to instructing children and adults in the Catholic faith, preparing them for the sacraments, and deepening their understanding of Christian teachings.",
+    details: {
+      meetingDays: "Sundays",
+      time: "9:00AM - 11:00AM",
+      location: "Church Hall",
+    },
+  },
+  {
+    name: "Board of Lectors 📜",
+    subHeading: "Proclaiming the Word with clarity and reverence.",
+    description:
+      "The Board of Lectors ensures that the scriptures are read with devotion and understanding during Mass. Members are trained to deliver God’s Word with faith and eloquence.",
+    details: {
+      meetingDays: "Fridays",
+      time: "5:30 PM – 6:30 PM",
+      location: "Church Hall",
+    },
+  },
+  {
+    name: "Choir Ministry 🎶",
+    subHeading: "Lifting hearts to God through song and worship.",
+    description:
+      "The Choir Ministry enhances liturgical celebrations with sacred music, inspiring worshippers through melodious hymns and choral arrangements. Join us in spreading the Gospel through song!",
+    details: {
+      meetingDays: "Tuesdays & Saturdays",
+      time: "4:00PM - 6:00PM",
+      location: "Church Hall",
+    },
+  },
+  {
+    name: "Legion of Mary 🌹",
+    subHeading: "Serving Christ through devotion to Mary.",
+    description:
+      "Members of the Legion of Mary engage in prayer, evangelization, and service to the sick, elderly, and those in need, following the example of the Blessed Virgin Mary.",
+    details: {
+      meetingDays: "Sundays",
+      time: "After 6:00AM Mass",
+      location: "Marian Grotto",
+    },
+  },
+  {
+    name: "Church Warden 🤝",
+    subHeading: "Welcoming all with warmth and joy.",
+    description:
+      "This team ensures that all parishioners and visitors feel at home in our church. They guide seating, distribute materials, and provide assistance during services.",
+    details: {
+      meetingDays: "First Saturday of the Month",
+      time: "5:00 PM – 6:00 PM",
+      location: "Church Lobby",
+    },
+  },
+];

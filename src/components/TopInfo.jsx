@@ -42,7 +42,7 @@ const StyledTopInfo = styled.div`
 const Overlay = styled.div`
   position: absolute;
   inset: 0;
-  background: #000000b4;
+  background-color: var(--color-over-100);
   z-index: 1;
 `;
 

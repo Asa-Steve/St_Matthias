@@ -12,6 +12,8 @@ import Records from "./pages/Records";
 import History from "./pages/History";
 import Articles from "./pages/Articles";
 import ArticleDetails from "./features/Articles/ArticleDetails";
+import Ministries from "./pages/Ministries";
+import Activities from "./pages/Activities";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           <Route path="donate" element={<Donate />} />
           <Route path="history" element={<History />} />
           <Route path="articles" element={<Articles />} />
+          <Route path="ministries" element={<Ministries />} />
+          <Route path="programs" element={<Activities />} />
           <Route path="articles/:articleId" element={<ArticleDetails />} />
           <Route path="search-records" element={<Records />} />
           <Route path="prayer-request" element={<MassRequest />} />

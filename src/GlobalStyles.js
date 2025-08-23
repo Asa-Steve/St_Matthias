@@ -16,9 +16,10 @@ const GlobalStyles = createGlobalStyle`
   
     --color-yellow-900: #ffe600;
     --color-dark-900: #000000;
-  
+    
     /* Overlay */
     --color-over-900: hsla(221, 39%, 11%, 0.576);
+    --color-over-100: #000000b4;
   
     /* Backdrop */
     --backdrop-color: rgba(255, 255, 255, 0.1);
