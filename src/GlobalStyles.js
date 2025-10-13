@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
     --color-yellow-700: #a16207;
     --color-red-700: #b91c1c;
     --color-red-200:rgba(185, 28, 28, 0.82);
+    --color-blue-100:  #b7e6ffff;
     --color-blue-700: #0369a1;
   
     --color-yellow-900: #ffe600;

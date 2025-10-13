@@ -14,6 +14,8 @@ import Articles from "./pages/Articles";
 import ArticleDetails from "./features/Articles/ArticleDetails";
 import Ministries from "./pages/Ministries";
 import Activities from "./pages/Activities";
+import AdminLayout from "./features/Admin/AdminLayout";
+import Dashboard from "./features/Admin/Dashboard";
 
 function App() {
   return (
@@ -35,6 +37,10 @@ function App() {
           <Route path="religious/:religiousId" element={<Religious />} />
         </Route>
 
+        {/* Admin Route */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Dashboard />} />
+        </Route>
         {/* Catch-all route for undefined paths */}
         <Route path="*" element={<NotFound />} />
       </Routes>
