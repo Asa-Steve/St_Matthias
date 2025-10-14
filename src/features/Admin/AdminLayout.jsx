@@ -1,19 +1,29 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
+import { device } from "@/helpers/mediaQueries";
+import { useState } from "react";
+import Overlay from "@/components/Overlay";
 
 const StyledAdminLayout = styled.div`
   height: 100vh;
   display: flex;
+  position: relative;
 `;
 
 const Aside = styled.aside`
   height: 100%;
-  width: 25%;
   display: flex;
   gap: 2rem;
   flex-direction: column;
   box-shadow: -1px 0px 8px #a5a5a5b7;
+  width: 90%;
+  position: absolute;
+  left: ${(props) => (props.show === "true" ? "0" : "-100%")};
+  background-color: var(--color-grey-0);
+  transition: all 0.3s;
+  z-index: 999;
+  padding: 2rem 0;
 
   nav {
     display: flex;
@@ -72,6 +82,17 @@ const Aside = styled.aside`
       }
     }
   }
+
+  @media ${device.tablet} {
+    width: 50%;
+    padding: 1rem 0;
+  }
+  @media ${device.desktop} {
+    width: 25%;
+    position: relative;
+    left: 0;
+    padding: 0;
+  }
 `;
 
 const UserDeit = styled.div`
@@ -95,9 +116,13 @@ const UserDeit = styled.div`
 `;
 
 const WrapperDiv = styled.div`
-  width: calc(100% - 25%);
   display: flex;
   flex-direction: column;
+  width: 100%;
+
+  @media ${device.desktop} {
+    width: calc(100% - 25%);
+  }
 `;
 
 const HeaderBar = styled.div`
@@ -132,6 +157,19 @@ const Main = styled.main`
   overflow-y: auto;
 `;
 
+const Toggler = styled(Icon)`
+  border: 1px solid var(--color-grey-300);
+  font-size: var(--f-lg);
+  position: relative;
+  background-color: var(--color-grey-0);
+  margin-left: 1rem;
+  z-index: 1000;
+
+  @media ${device.desktop} {
+    display: none;
+  }
+`;
+
 const navLinks = [
   { to: "/", value: "Insight", icon: "fluent:data-trending-16-regular" },
   { to: "posts", value: "Posts", icon: "iconoir:post" },
@@ -147,10 +185,13 @@ const navLinks = [
 ];
 
 const AdminLayout = () => {
+  const [showToggle, setShowToggle] = useState(false);
+
   return (
     <StyledAdminLayout>
       {/* Aside */}
-      <Aside>
+      {showToggle && <Overlay />}
+      <Aside show={showToggle ? "true" : "false"}>
         <UserDeit>
           <img src="https://picsum.photos/200" alt="admin-photo" />
           <div>
@@ -177,10 +218,14 @@ const AdminLayout = () => {
       {/* Top header bar */}
       <WrapperDiv>
         <HeaderBar>
-          <RightDiv>
+          <RightDiv onClick={() => console.log("i got clicked")}>
             <Icon icon="material-symbols-light:logout-rounded" />
             <span>Logout</span>
           </RightDiv>
+          <Toggler
+            icon={showToggle ? "ci:close-md" : "icon-park:hamburger-button"}
+            onClick={() => setShowToggle((prev) => !prev)}
+          ></Toggler>
         </HeaderBar>
         {/* Main content area */}
         <Main>

@@ -1,4 +1,8 @@
+import AddPost from "@/components/AddPost";
+import Modal from "@/components/Modal";
 import { cardData } from "@/helpers/helpers";
+import { device } from "@/helpers/mediaQueries";
+import { useIsMobile } from "@/helpers/useResize";
 import { Icon } from "@iconify/react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -12,18 +16,27 @@ const OverViewCards = styled.div`
   display: flex;
   justify-content: space-between;
   padding-inline: 1rem;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 1rem;
 `;
 
 const Card = styled.div`
   border: 1px solid var(--color-grey-200);
   height: 90%;
-  width: 32%;
   margin-block: auto;
   padding: 1rem;
   border-radius: 8px;
   background-color: var(--color-blue-100);
+
+  min-width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   p {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
   }
 
@@ -32,6 +45,17 @@ const Card = styled.div`
   }
   &:nth-of-type(3) {
     background-color: var(--color-yellow-100);
+  }
+
+  @media ${device.tablet} {
+    min-width: 40%;
+  }
+  @media ${device.desktop} {
+    min-width: 32%;
+
+    p {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -63,6 +87,7 @@ const Action = styled.div`
   color: var(--color-grey-0);
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 13px;
 
   svg {
     font-size: 20px;
@@ -79,6 +104,10 @@ const Action = styled.div`
       background-color: var(--color-green-100);
     }
   }
+
+  @media ${device.desktop} {
+    font-size: var(--f-sm);
+  }
 `;
 
 const RecentPosts = styled.div`
@@ -91,16 +120,21 @@ const Posts = styled.div`
   min-height: 40px;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
   padding: 1rem;
   margin-top: 1rem;
   background: #fff;
   border-radius: 8px;
+  gap: 0.5rem;
+
+  @media ${device.desktop} {
+    gap: 0.2rem;
+  }
 `;
 
 const Post = styled.div`
   background-color: var(--color-grey-100);
   padding: 0.4rem;
+  border: 1px solid transparent;
   border-radius: 8px;
   position: relative;
   height: 40px;
@@ -109,11 +143,22 @@ const Post = styled.div`
   display: flex;
   align-items: center;
   padding-left: 1rem;
+
+  &:hover {
+    border: 1px solid var(--color-grey-300);
+  }
+
+  a {
+    transition: all 0.3s;
+    &:hover {
+      color: var(--color-green-700);
+    }
+  }
 `;
 
 const Category = styled.div`
   position: absolute;
-  padding: 0.3rem 1rem;
+  padding: 0.1rem 0.5rem;
   border-radius: 10px;
   right: 2%;
   top: 50%;
@@ -121,28 +166,35 @@ const Category = styled.div`
   font-size: 13px;
   background-color: var(--color-blue-100);
   display: flex;
-  gap: 0.5rem;
+  gap: 0.2rem;
   align-items: center;
 
   svg {
     font-size: 15px;
+  }
+
+  @media ${device.desktop} {
+    padding: 0.3 1rem;
   }
 `;
 
 const posts = cardData;
 
 const Dashboard = () => {
+  const isMobile = useIsMobile();
+
+  const sliceNum = isMobile ? 25 : 50;
   return (
     <StyledDashboard>
       {/*Overview Cards */}
       <OverViewCards>
         <Card>
           <h4>Total Income</h4>
-          <p>890</p>
+          <p>N8.92M</p>
         </Card>
         <Card>
           <h4>Mass Requests</h4>
-          <p>1580</p>
+          <p>1.5K</p>
         </Card>
         <Card>
           <h4>Infant Registrations</h4>
@@ -153,13 +205,23 @@ const Dashboard = () => {
       <QuickActions>
         <h3>Quick Actions</h3>
         <Actions>
-          <Action>
-            <Icon icon={"streamline-sharp:story-post"}></Icon> Add Post
-          </Action>
-          <Action>
-            <Icon icon={"material-symbols-light:post-add-rounded"}></Icon> Add
-            Record
-          </Action>
+          <Modal>
+            <Modal.Open opens="add_post">
+              <Action>
+                <Icon icon={"streamline-sharp:story-post"}></Icon> Add Post
+              </Action>
+            </Modal.Open>
+            <Modal.Open opens="add_record">
+              <Action>
+                <Icon icon={"material-symbols-light:post-add-rounded"}></Icon>{" "}
+                Add Record
+              </Action>
+            </Modal.Open>
+            <Modal.Window name="add_post">
+              <AddPost />
+            </Modal.Window>
+            <Modal.Window name="add_record">i am for add record</Modal.Window>
+          </Modal>
         </Actions>
       </QuickActions>
 
@@ -172,7 +234,11 @@ const Dashboard = () => {
           ) : (
             posts?.map((post, idx) => (
               <Post key={idx}>
-                <Link>{post?.title}</Link>
+                <Link>
+                  {post?.title?.length > sliceNum
+                    ? post?.title?.slice(0, sliceNum - 3) + "..."
+                    : post?.title}
+                </Link>
                 <Category>
                   <Icon icon={"mdi-light:tag"}></Icon> {post?.category}
                 </Category>
