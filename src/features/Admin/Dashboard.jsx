@@ -1,4 +1,5 @@
 import AddPost from "@/components/AddPost";
+import AddRecord from "@/components/AddRecord";
 import Modal from "@/components/Modal";
 import { cardData } from "@/helpers/helpers";
 import { device } from "@/helpers/mediaQueries";
@@ -220,7 +221,9 @@ const Dashboard = () => {
             <Modal.Window name="add_post">
               <AddPost />
             </Modal.Window>
-            <Modal.Window name="add_record">i am for add record</Modal.Window>
+            <Modal.Window name="add_record">
+              <AddRecord />
+            </Modal.Window>
           </Modal>
         </Actions>
       </QuickActions>

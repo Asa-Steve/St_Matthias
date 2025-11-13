@@ -80,8 +80,8 @@ const StyledFormRow = styled.div`
   }
 `;
 
-const FormRow = ({ children }) => {
-  return <StyledFormRow>{children}</StyledFormRow>;
+const FormRow = ({ children, className }) => {
+  return <StyledFormRow className={className}>{children}</StyledFormRow>;
 };
 
 export default FormRow;

@@ -7,6 +7,7 @@ import styled from "styled-components";
 const StyledModalWindow = styled(motion.div)`
   position: absolute;
   height: 100vh;
+  overflow-y: scroll;
   inset: 0;
   background-color: #8080805b;
   backdrop-filter: blur(20px);
